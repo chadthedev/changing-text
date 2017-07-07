@@ -1,7 +1,10 @@
-function changingText(stringsToType){
-	//change-text is the class of the parent element, changing-text is the child span of change-text
+function changingText(stringsToType, options={
+	pauseTime : 700,
+	typingSpeed : 100
+}){
+	console.log(options.typingSpeed);
+	//change-text is the id of the parent element, changing-text is the child span of change-text
 	$("#change-text").html("<span id='changing-text'></span><span id='blinking-line'>|</span>");
-	// var stringsToType = ["Beautiful Websites", "Intutitve Layouts", "Affordable Hosting solutions"];
 	var stringIndex = 0; //which string will be typed or erased
 	var activeString = false; //toggles as strings are either typed or erased
 	blinkingLine();
@@ -9,7 +12,7 @@ function changingText(stringsToType){
 	function blinkingLine(){ //creates a blinking effect for 2 blinks then calls another function
 		var hidden = false;//toggles as the line blinks
 		var count = 0;
-		var timer = setInterval(blinkingTextLine, 700);
+		var timer = setInterval(blinkingTextLine, options.pauseTime);
 		function blinkingTextLine() { 
 			if (hidden) {
 				$("#blinking-line").css("visibility", "visible");
@@ -31,7 +34,7 @@ function changingText(stringsToType){
 		activeString = true;
 		var count = 0;
 		var string = stringsToType[stringIndex];
-		var timer = setInterval(addChar, 100);
+		var timer = setInterval(addChar, options.typingSpeed);
 		function addChar() {
 			if (count > string.length) {
 				clearInterval(timer);
@@ -47,7 +50,7 @@ function changingText(stringsToType){
 		activeString = false;
 		var count = 0;
 		var string = stringsToType[stringIndex];
-		var timer = setInterval(removeChar, 100);
+		var timer = setInterval(removeChar, options.typingSpeed);
 		function removeChar() {
 			if (count > string.length) {
 				clearInterval(timer);
