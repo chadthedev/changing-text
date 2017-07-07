@@ -1,6 +1,7 @@
 function changingText(stringsToType, options={
-	pauseTime : 700,
-	typingSpeed : 100
+	blinkSpeed : 700,
+	typingSpeed : 100,
+	blinksPerPause : 4
 }){
 	console.log(options.typingSpeed);
 	//change-text is the id of the parent element, changing-text is the child span of change-text
@@ -12,7 +13,7 @@ function changingText(stringsToType, options={
 	function blinkingLine(){ //creates a blinking effect for 2 blinks then calls another function
 		var hidden = false;//toggles as the line blinks
 		var count = 0;
-		var timer = setInterval(blinkingTextLine, options.pauseTime);
+		var timer = setInterval(blinkingTextLine, options.blinkSpeed);
 		function blinkingTextLine() { 
 			if (hidden) {
 				$("#blinking-line").css("visibility", "visible");
@@ -21,7 +22,7 @@ function changingText(stringsToType, options={
 				$("#blinking-line").css("visibility", "hidden");
 				hidden = true;
 			}
-			if (count > 4) {
+			if (count > options.blinksPerPause) {
 			 	$("#blinking-line").css("visibility", "visible");
 			 	clearInterval(timer); 
 				activeString ? removeString() : addString();
