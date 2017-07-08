@@ -1,7 +1,7 @@
 function changingText(stringsToType, options={
-	blinkSpeed : 700,
-	typingSpeed : 100,
-	blinksPerPause : 4
+	blinkSpeed : 500,
+	typingSpeed : 50,
+	blinksPerPause : 2
 }){
 	console.log(options.typingSpeed);
 	//change-text is the id of the parent element, changing-text is the child span of change-text
