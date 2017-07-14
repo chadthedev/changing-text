@@ -1,14 +1,14 @@
 changing-text
 
-a simple javascript animation that mimics someone typing something then erasing it and typing something else, requires jquery
+a jquery function that mimics someone typing 
 
-Usage: include <script src="changing-text.js"></script> then simply add an id of "change-text" to whatever element you would like to change then call changingText(["strings", "you", "want", "typed"]) in your javascript
+Usage: call with $("element").changeText(["strings","you","want",typed"], options);
 
-Options parameter An options parameter exists with the options to change: typingspeed, blinkSpeed, and blinksPerPause. usage of options parameter:
+Options parameter An options parameter exists with the options to change: typingspeed, blinkSpeed, and blinksPerPause and toggle whether or not you want it to loop. usage of options parameter:
 
 options = { typingSpeed : 500, // Default option values 
 			blinkSpeed : 50, 
-			blinksPerPause : 2 }; 
-stringsToType = ["an", "array", "of", "strings"]; changingText(stringsToType, options);
+			blinksPerPause : 2,
+			loop: true}; 
 
-*note, be sure to include all options in options object even if you're only changing one
+$("element").changeText(["strings","you","want",typed"], options);
