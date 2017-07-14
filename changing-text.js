@@ -5,8 +5,8 @@
 			blinkSpeed : 500,
 			typingSpeed : 50,
 			blinksPerPause : 2,
-		}, options);
-		//change-text is the id of the parent element, changing-text is the child span of change-text
+			loop : true		}, options);
+		
 		$(this).html("<span class='changing-text'></span><span class='blinking-line'>|</span>");
 		var stringIndex = 0; //which string will be typed or erased
 		var activeString = false; //toggles as strings are either typed or erased
@@ -15,6 +15,9 @@
 		function blinkingLine(jqueryObject){ //creates a blinking effect for 2 blinks then calls another function
 			var hidden = false;//toggles as the line blinks
 			var count = 0;
+			if (!settings.loop && jqueryObject.children(".changing-text").text() == stringsToType[stringsToType.length - 1]) {
+				settings.blinksPerPause = 99999999*999999999;
+			}
 			var timer = setInterval(blinkingTextLine, settings.blinkSpeed);
 			function blinkingTextLine() { 
 				if (hidden) {
