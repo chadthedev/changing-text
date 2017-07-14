@@ -12,3 +12,5 @@ options = { typingSpeed : 500, // Default option values
 			loop: true}; 
 
 $("element").changeText(["strings","you","want","typed"], options);
+
+Live example at http://changing-text-example.s3-website-us-west-2.amazonaws.com/
