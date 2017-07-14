@@ -11,4 +11,4 @@ options = { typingSpeed : 500, // Default option values
 			blinksPerPause : 2,
 			loop: true}; 
 
-$("element").changeText(["strings","you","want",typed"], options);
+$("element").changeText(["strings","you","want","typed"], options);
